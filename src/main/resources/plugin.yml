@@ -1,0 +1,26 @@
+name: ServerControl
+version: '${project.version}'
+main: one.lifetab.mc.servercontrol.Servercontrol
+api-version: 1.18
+authors: [ LIFETAB ]
+description: Server Control Plugin
+website: https://plugins.lifetab.one/
+
+commands:
+  sc:
+    description: /sc - Plugin command
+
+permissions:
+  servercontrol.*:
+    description: "Allows the user to use all Server Control commands"
+    default: op
+  servercontrol.help:
+    description: "Allows the user to use the Server Control help command"
+    default: false
+  servercontrol.reload:
+    description: "Allows the user to use the Server Control reload command"
+    default: false
+  servercontrol.restart:
+    description: "Allows the user to use the Server Control restart command"
+    default: false
+

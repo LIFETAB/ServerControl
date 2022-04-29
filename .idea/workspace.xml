@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9a497d17-991b-453e-b615-e7306b46c3bd" name="Changes" comment="1.0.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/one/lifetab/mc/servercontrol/commands/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/one/lifetab/mc/servercontrol/commands/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/one/lifetab/mc/servercontrol/utility/Send.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/one/lifetab/mc/servercontrol/utility/Send.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/one/lifetab/mc/servercontrol/utility/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/one/lifetab/mc/servercontrol/utility/Messages.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,22 +40,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ToolWindowRun.ShowToolbar": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.fileTypes"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\LIFETAB\idea-workspace\ServerControl\src\main\java\one\lifetab\mc\servercontrol" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="ServerControl build" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
@@ -129,8 +133,18 @@
       <workItem from="1650738371212" duration="8944000" />
       <workItem from="1650762210468" duration="1306000" />
       <workItem from="1650802729418" duration="8278000" />
-      <workItem from="1651156394770" duration="12196000" />
+      <workItem from="1651156394770" duration="12329000" />
+      <workItem from="1651262477664" duration="2053000" />
+      <workItem from="1651269669521" duration="366000" />
     </task>
+    <task id="LOCAL-00001" summary="1.0.0">
+      <created>1651173936210</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1651173936210</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

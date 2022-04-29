@@ -23,10 +23,6 @@ public class Messages {
         msg(sender, PREFIX + "&cVersion: &a" + Servercontrol.getPluginVersion());
     }
 
-    public static void onlyForConsole(@NotNull CommandSender sender) {
-        msg(sender, PREFIX + "&cThis command can only be used by console! Use /sc restart instead!");
-    }
-
     public static void noPermission(@NotNull CommandSender sender) {
         msg(sender, PREFIX + "&cYou don't have permission to use this command!");
     }

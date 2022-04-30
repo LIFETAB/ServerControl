@@ -1,0 +1,8 @@
+# Main Config File for ServerControl
+
+##############################################################################
+#                                 Commands                                   #
+##############################################################################
+restart:
+  # time in seconds to restart the server
+  time: 10

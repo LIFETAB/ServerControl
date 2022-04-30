@@ -5,10 +5,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 public final class Servercontrol extends JavaPlugin {
-    public static String ConsolePREFIX = "&r&0[&rServerControl&r&0]&r ";
+    public static String ConsolePREFIX = "&r&f[&rServerControl&r&f]&r ";
     public static String PREFIX = "&r&0│ &9&lServer Control&r&0│&r ";
     public static Servercontrol INSTANCE;
     public Servercontrol() {
@@ -17,15 +19,17 @@ public final class Servercontrol extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        log("&0---------------│ &6&lServer Control &r&0│---------------&r");
-        log("&r&0│ &aServerControl has been enabled!");
-        log("&r&0│ &aVersion: &r&c" + getPluginVersion());
-        log("&r&0│ &bRegistering commands...");
-        register();
-        log("&r&0│ &aCommands have been registered!");
-        log("&r&0│ &aPlugin by .LIFETAB#6932");
-        log("&r&0│ &aHave fun!");
-        log("&0---------------│ &6&lServer Control &r&0│---------------&r");
+        saveDefaultConfig();
+
+        log("&f---------------│ &6&lServer Control &r&f│---------------&r");
+        log("&r&f│ &aServerControl has been enabled!");
+        log("&r&f│ &aVersion: &r&c" + getPluginVersion());
+        log("&r&f│ &bRegistering commands...");
+        registerCommands();
+        log("&r&f│ &aCommands have been registered!");
+        log("&r&f│ &aPlugin by .LIFETAB#6932");
+        log("&r&f│ &aHave fun!");
+        log("&f---------------│ &6&lServer Control &r&f│---------------&r");
     }
 
     @Override
@@ -38,9 +42,11 @@ public final class Servercontrol extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage(msg);
     }
 
-    private void register() {
+    private void registerCommands() {
         Objects.requireNonNull(Bukkit.getPluginCommand("sc")).setExecutor(new ServerControlCommand());
+        Objects.requireNonNull(Bukkit.getPluginCommand("sc")).setTabCompleter(new ServerControlCommand());
     }
+
 
     public static String getPluginVersion() {
         String version = INSTANCE.getDescription().getVersion();

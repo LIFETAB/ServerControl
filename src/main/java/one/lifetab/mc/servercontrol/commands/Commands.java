@@ -1,18 +1,17 @@
 package one.lifetab.mc.servercontrol.commands;
 
-import one.lifetab.mc.servercontrol.utility.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import one.lifetab.mc.servercontrol.utility.Messages;
 
-import java.util.concurrent.TimeUnit;
 
-import static one.lifetab.mc.servercontrol.Servercontrol.PREFIX;
-import static one.lifetab.mc.servercontrol.utility.Send.broadcast;
+import static one.lifetab.mc.servercontrol.Servercontrol.*;
 import static one.lifetab.mc.servercontrol.utility.Send.msg;
+
 
 public class Commands {
     public static void help(@NotNull CommandSender sender) {
@@ -29,24 +28,49 @@ public class Commands {
 
     public static void reload(@NotNull CommandSender sender) {
         if (sender.hasPermission("servercontrol.reload") || sender instanceof ConsoleCommandSender) {
-            msg(sender, PREFIX + "&cCommand in development...");
+            INSTANCE.reloadConfig();
+            msg(sender, PREFIX + "&aConfiguration reloaded!");
         }
     }
 
-    public static void restart(@NotNull CommandSender sender) {
+    public static void restart(@NotNull CommandSender sender, String[] args) {
         if (sender.hasPermission("servercontrol.restart") || sender instanceof ConsoleCommandSender) {
-            for (int i = 10; i > 0; i--) {
-                broadcast(PREFIX + "&cServer restarting in &e" + i + "&c seconds...");
+            if (args.length == 2) {
                 try {
-                    TimeUnit.SECONDS.sleep(1); // Sleep for 1 second
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    Integer.parseInt(args[1]);
+                } catch (NumberFormatException e) {
+                    msg(sender, PREFIX + "&cPlease enter a valid number of seconds.");
+                    return;
                 }
+                int restartTime = Integer.parseInt(args[1]);
+                restartServer(restartTime);
+            } else {
+                //Get Information from config.yml
+                int restartTime = INSTANCE.getConfig().getInt("restart.time");
+                restartServer(restartTime);
             }
-            for (Player target : Bukkit.getOnlinePlayers()) {
-                target.kickPlayer(ChatColor.translateAlternateColorCodes('&',PREFIX + "&cServer restarting... \n&cPlease reconnect in 2 minutes..."));
-            }
-            Bukkit.spigot().restart();
         }
+    }
+    private static void restartServer(int restartTime) {
+        INSTANCE.getServer().getScheduler().scheduleSyncDelayedTask(INSTANCE, () -> {
+            for (Player target : Bukkit.getOnlinePlayers()) {
+                target.kickPlayer(ChatColor.translateAlternateColorCodes('&',PREFIX + "\n&cServer is restarting... &bPlease reconnect in 2 minutes!"));
+            }
+            //Bukkit.spigot().restart();
+        }, (restartTime+2) * 20L);
+        new Thread((new Runnable() {
+            @Override
+            public void run() {
+                for (int i = restartTime; i >= 0; i--) {
+                    Messages.restartMsg(i);
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                Messages.restartMsg1();
+            }
+        })).start();
     }
 }

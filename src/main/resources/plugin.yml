@@ -9,11 +9,10 @@ website: https://plugins.lifetab.one/
 commands:
   sc:
     description: /sc - Plugin command
+    usage: /sc <argument>
+    aliases: [ servercontrol ]
 
 permissions:
-  servercontrol.*:
-    description: "Allows the user to use all Server Control commands"
-    default: op
   servercontrol.help:
     description: "Allows the user to use the Server Control help command"
     default: false
@@ -23,4 +22,6 @@ permissions:
   servercontrol.restart:
     description: "Allows the user to use the Server Control restart command"
     default: false
-
+  servercontrol.version:
+    description: "Allows the user to use the Server Control version command"
+    default: false

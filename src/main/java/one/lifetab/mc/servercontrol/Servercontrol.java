@@ -5,8 +5,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
 
 public final class Servercontrol extends JavaPlugin {
